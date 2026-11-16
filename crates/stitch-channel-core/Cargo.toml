@@ -1,0 +1,18 @@
+[package]
+name = "stitch-channel-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Pure #![no_std] zero-allocation, cache-line aligned channel and ring primitives for Stitch SMA"
+
+[dependencies]
+wire-ring = { workspace = true, optional = true }
+
+[features]
+default = []
+std = ["alloc"]
+alloc = []
+wire-ring = ["dep:wire-ring"]

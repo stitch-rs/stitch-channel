@@ -1,0 +1,17 @@
+[package]
+name = "stitch-channel-benches"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+stitch-channel-core = { workspace = true, features = ["std"] }
+stitch-channel = { workspace = true, features = ["std"] }
+criterion = { workspace = true }
+
+[[bench]]
+name = "spsc_throughput"
+harness = false

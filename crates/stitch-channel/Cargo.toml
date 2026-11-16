@@ -1,0 +1,23 @@
+[package]
+name = "stitch-channel"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "High-performance monomorphic channel facade, builders, and SMA integration for the Stitch ecosystem"
+
+[dependencies]
+stitch-channel-core = { workspace = true }
+stitch-core = { workspace = true, optional = true }
+stitch-wire = { workspace = true, optional = true }
+machine-core = { workspace = true, optional = true }
+
+[features]
+default = ["std", "stitch"]
+std = ["stitch-channel-core/std"]
+alloc = ["stitch-channel-core/alloc"]
+stitch = ["dep:stitch-core"]
+wire = ["dep:stitch-wire"]
+machine = ["dep:machine-core"]

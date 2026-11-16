@@ -1,0 +1,33 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/stitch-channel-core",
+    "crates/stitch-channel",
+    "adapters/stitch-channel-adapter-tokio",
+    "adapters/stitch-channel-adapter-nats",
+    "benches",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+authors = ["Stitch Contributors", "UlquiorraCode"]
+repository = "https://github.com/stitch-rs/stitch-channel"
+
+[workspace.dependencies]
+stitch-channel-core = { path = "crates/stitch-channel-core", default-features = false }
+stitch-channel = { path = "crates/stitch-channel", default-features = false }
+stitch-core = { git = "https://github.com/stitch-rs/stitch-framework.git", branch = "dev", default-features = false }
+stitch-wire = { git = "https://github.com/stitch-rs/stitch-wire.git", branch = "dev", default-features = false }
+wire-ring = { git = "https://github.com/ulquiorracode/wire-ring-rs.git", branch = "dev", default-features = false }
+machine-core = { git = "https://github.com/ulquiorracode/machine-rs.git", branch = "dev", default-features = false }
+
+tokio = { version = "1.44", default-features = false, features = ["sync"] }
+criterion = { version = "0.8", default-features = false }
+
+[profile.bench]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

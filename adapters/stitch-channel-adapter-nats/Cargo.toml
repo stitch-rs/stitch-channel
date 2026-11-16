@@ -1,0 +1,15 @@
+[package]
+name = "stitch-channel-adapter-nats"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "NATS streaming and messaging bridge and adapters for stitch-channel"
+
+[dependencies]
+stitch-channel-core = { workspace = true, features = ["std"] }
+
+[features]
+default = []

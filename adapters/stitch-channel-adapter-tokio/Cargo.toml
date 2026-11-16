@@ -1,0 +1,16 @@
+[package]
+name = "stitch-channel-adapter-tokio"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Tokio asynchronous channel bridge and adapters for stitch-channel"
+
+[dependencies]
+stitch-channel-core = { workspace = true, features = ["std"] }
+tokio = { workspace = true }
+
+[features]
+default = []
